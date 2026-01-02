@@ -1,0 +1,113 @@
+/* ========================================
+   HTMLKit Hub - Sistema de Temas (Enterprise)
+   Paleta Slate/Indigo profesional
+   ======================================== */
+
+/* Tema Claro (Default) */
+:root,
+[data-theme="light"] {
+  /* Brand Colors (Indigo) */
+  --color-primary: #4f46e5;
+  --color-primary-hover: #4338ca;
+  --color-primary-active: #3730a3;
+  --color-primary-light: #e0e7ff;
+  --color-primary-text: #ffffff;
+
+  /* Secondary/Neutral (Slate) */
+  --color-secondary: #64748b;
+  --color-secondary-hover: #475569;
+  --color-secondary-light: #f1f5f9;
+
+  /* Semantic Colors */
+  --color-success: #059669;       /* Emerald 600 */
+  --color-success-bg: #ecfdf5;
+  --color-danger: #dc2626;        /* Red 600 */
+  --color-danger-bg: #fef2f2;
+  --color-warning: #d97706;       /* Amber 600 */
+  --color-warning-bg: #fffbeb;
+  --color-info: #2563eb;          /* Blue 600 */
+  --color-info-bg: #eff6ff;
+
+  /* Surface & Backgrounds */
+  --color-background: #ffffff;
+  --color-surface: #ffffff;
+  --color-surface-alt: #f8fafc;   /* Slate 50 */
+  --color-surface-active: #f1f5f9; /* Slate 100 */
+  
+  /* Borders & Dividers */
+  --color-border: #e2e8f0;        /* Slate 200 */
+  --color-border-hover: #cbd5e1;  /* Slate 300 */
+  --color-divider: #f1f5f9;
+
+  /* Typography */
+  --color-text: #0f172a;          /* Slate 900 */
+  --color-text-heading: #1e293b;  /* Slate 800 */
+  --color-text-secondary: #475569; /* Slate 600 */
+  --color-text-tertiary: #94a3b8; /* Slate 400 */
+  --color-text-inverse: #ffffff;
+  --color-text-disabled: #cbd5e1;
+
+  /* Shadows (Tailwind-like) */
+  --shadow-color: 220 3% 15%;
+  --shadow-sm: 0 1px 2px 0 rgba(var(--shadow-color), 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(var(--shadow-color), 0.1), 0 2px 4px -1px rgba(var(--shadow-color), 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(var(--shadow-color), 0.1), 0 4px 6px -2px rgba(var(--shadow-color), 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(var(--shadow-color), 0.1), 0 10px 10px -5px rgba(var(--shadow-color), 0.04);
+  
+  /* Editor */
+  --editor-bg: #ffffff;
+  --editor-gutter: #f8fafc;
+  --editor-line-number: #94a3b8;
+}
+
+/* Tema Oscuro */
+[data-theme="dark"] {
+  /* Brand Colors (Indigo) */
+  --color-primary: #6366f1;       /* Indigo 500 */
+  --color-primary-hover: #818cf8; /* Indigo 400 */
+  --color-primary-active: #4f46e5;
+  --color-primary-light: #1e1b4b; /* Indigo 950 */
+  --color-primary-text: #ffffff;
+
+  /* Secondary/Neutral (Slate) */
+  --color-secondary: #94a3b8;
+  --color-secondary-hover: #cbd5e1;
+  --color-secondary-light: #1e293b;
+
+  /* Semantic Colors */
+  --color-success: #34d399;       /* Emerald 400 */
+  --color-success-bg: #064e3b;
+  --color-danger: #f87171;        /* Red 400 */
+  --color-danger-bg: #7f1d1d;
+  --color-warning: #fbbf24;       /* Amber 400 */
+  --color-warning-bg: #78350f;
+  --color-info: #60a5fa;          /* Blue 400 */
+  --color-info-bg: #1e3a8a;
+
+  /* Surface & Backgrounds */
+  --color-background: #020617;    /* Slate 950 */
+  --color-surface: #0f172a;       /* Slate 900 */
+  --color-surface-alt: #1e293b;   /* Slate 800 */
+  --color-surface-active: #334155; /* Slate 700 */
+
+  /* Borders & Dividers */
+  --color-border: #1e293b;        /* Slate 800 */
+  --color-border-hover: #334155;  /* Slate 700 */
+  --color-divider: #1e293b;
+
+  /* Typography */
+  --color-text: #f8fafc;          /* Slate 50 */
+  --color-text-heading: #ffffff;
+  --color-text-secondary: #cbd5e1; /* Slate 300 */
+  --color-text-tertiary: #94a3b8; /* Slate 400 */
+  --color-text-inverse: #020617;
+  --color-text-disabled: #475569;
+
+  /* Shadows */
+  --shadow-color: 0 0% 0%;
+  
+  /* Editor */
+  --editor-bg: #0f172a;
+  --editor-gutter: #020617;
+  --editor-line-number: #64748b;
+}

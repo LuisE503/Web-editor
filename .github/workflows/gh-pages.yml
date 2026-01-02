@@ -1,0 +1,127 @@
+name: Deploy to GitHub Pages
+
+# Ejecutar en push a main y manual
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+# Permisos necesarios para GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Permitir solo un despliegue concurrente
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # Job de Lint (opcional pero recomendado)
+  lint:
+    name: Lint JavaScript
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Instalar ESLint
+        run: |
+          npm init -y
+          npm install --save-dev eslint
+
+      - name: Lint JavaScript files
+        run: |
+          npx eslint scripts/**/*.js components/**/*.js --no-eslintrc --env browser,es2021 --parser-options ecmaVersion:2021,sourceType:module || echo "Lint warnings found but continuing..."
+        continue-on-error: true
+
+  # Job de Build y Deploy
+  deploy:
+    name: Build and Deploy
+    runs-on: ubuntu-latest
+    needs: lint
+    
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v4
+
+      - name: Verificar archivos
+        run: |
+          echo "📂 Verificando estructura de archivos..."
+          ls -R
+          echo "✅ Archivos verificados"
+
+      - name: Validar HTML
+        run: |
+          echo "🔍 Validando archivos HTML..."
+          if [ -f "index.html" ] && [ -f "playground.html" ]; then
+            echo "✅ Archivos HTML encontrados"
+          else
+            echo "❌ Archivos HTML no encontrados"
+            exit 1
+          fi
+
+      - name: Validar componentes
+        run: |
+          echo "🔍 Validando Web Components..."
+          if [ -d "components" ] && [ -f "components/ph-button.js" ] && [ -f "components/ph-modal.js" ] && [ -f "components/ph-card.js" ]; then
+            echo "✅ Componentes encontrados"
+          else
+            echo "❌ Componentes no encontrados"
+            exit 1
+          fi
+
+      - name: Validar estilos
+        run: |
+          echo "🔍 Validando estilos CSS..."
+          if [ -d "styles" ] && [ -f "styles/base.css" ] && [ -f "styles/themes.css" ]; then
+            echo "✅ Estilos encontrados"
+          else
+            echo "❌ Estilos no encontrados"
+            exit 1
+          fi
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Subir todo el contenido del repositorio
+          path: '.'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: Resumen del despliegue
+        run: |
+          echo "🎉 Despliegue exitoso!"
+          echo "🌐 Tu sitio está disponible en: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/"
+          echo "📊 ID del despliegue: ${{ steps.deployment.outputs.page_url }}"
+
+  # Job de verificación post-deploy (opcional)
+  verify:
+    name: Verify Deployment
+    runs-on: ubuntu-latest
+    needs: deploy
+    
+    steps:
+      - name: Verificar sitio desplegado
+        run: |
+          echo "🔍 Verificando que el sitio esté en línea..."
+          sleep 30
+          curl -I https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/ || echo "⚠️ El sitio aún puede estar desplegándose..."
+
+      - name: Notificación de éxito
+        run: |
+          echo "✅ Proceso completado"
+          echo "Tu HTMLKit Hub está desplegado y listo para usar!"

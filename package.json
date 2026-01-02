@@ -1,0 +1,41 @@
+{
+  "name": "htmlkit-hub",
+  "version": "1.0.0",
+  "description": "Un playground interactivo y galería de Web Components puro HTML, CSS y JavaScript",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server -p 8000 -c-1",
+    "dev": "npx http-server -p 8000 -c-1 -o",
+    "lint": "eslint scripts/**/*.js components/**/*.js --fix",
+    "format": "prettier --write \"**/*.{html,css,js,json,md}\"",
+    "test": "echo \"No tests configured yet\" && exit 0"
+  },
+  "keywords": [
+    "web-components",
+    "html",
+    "css",
+    "javascript",
+    "playground",
+    "vanilla-js",
+    "no-framework",
+    "shadow-dom"
+  ],
+  "author": "HTMLKit Hub",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TU_USUARIO/htmlkit-hub.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TU_USUARIO/htmlkit-hub/issues"
+  },
+  "homepage": "https://TU_USUARIO.github.io/htmlkit-hub/",
+  "devDependencies": {
+    "eslint": "^8.0.0",
+    "http-server": "^14.1.1",
+    "prettier": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
