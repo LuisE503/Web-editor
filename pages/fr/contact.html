@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - CodeCraft Studio</title>
+  <meta name="description" content="Contactez l'équipe de CodeCraft Studio. Nous sommes là pour vous aider avec toutes vos questions ou suggestions.">
+  <meta name="robots" content="index, follow">
+  
+  <link rel="stylesheet" href="../../styles/base.css">
+  <link rel="stylesheet" href="../../styles/themes.css">
+  <link rel="stylesheet" href="../../styles/ui.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    .contact-hero {
+      background: linear-gradient(135deg, var(--color-primary), var(--color-primary-hover));
+      padding: 4rem 1rem;
+      text-align: center;
+      color: white;
+    }
+    
+    .contact-hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    
+    .contact-hero p {
+      font-size: 1.25rem;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .contact-content {
+      max-width: 1200px;
+      margin: -3rem auto 0;
+      padding: 0 1rem 4rem;
+    }
+    
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+    
+    .contact-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 1rem;
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.3s;
+      box-shadow: var(--shadow-md);
+    }
+    
+    .contact-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-xl);
+    }
+    
+    .contact-icon {
+      width: 4rem;
+      height: 4rem;
+      background: var(--color-primary-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      font-size: 1.75rem;
+      color: var(--color-primary);
+    }
+    
+    .contact-card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--color-text-heading);
+      margin-bottom: 0.75rem;
+    }
+    
+    .contact-card p {
+      color: var(--color-text-secondary);
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+    
+    .contact-card a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--color-primary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+    
+    .contact-card a:hover {
+      gap: 0.75rem;
+      color: var(--color-primary-hover);
+    }
+    
+    .contact-form-section {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 1rem;
+      padding: 2.5rem;
+      box-shadow: var(--shadow-md);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    .form-title {
+      font-size: 1.75rem;
+      font-weight: 600;
+      color: var(--color-text-heading);
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+    
+    .form-description {
+      color: var(--color-text-secondary);
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-label {
+      display: block;
+      font-weight: 500;
+      color: var(--color-text);
+      margin-bottom: 0.5rem;
+    }
+    
+    .form-required {
+      color: var(--color-danger);
+    }
+    
+    .form-input,
+    .form-textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: 0.5rem;
+      background: var(--color-surface-alt);
+      color: var(--color-text);
+      font-size: 1rem;
+      transition: all 0.2s;
+    }
+    
+    .form-input:focus,
+    .form-textarea:focus {
+      outline: none;
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px var(--color-primary-light);
+    }
+    
+    .form-textarea {
+      resize: vertical;
+      min-height: 150px;
+      font-family: inherit;
+    }
+    
+    .form-button {
+      width: 100%;
+      padding: 1rem;
+      background: var(--color-primary);
+      color: white;
+      border: none;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    
+    .form-button:hover {
+      background: var(--color-primary-hover);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .form-note {
+      font-size: 0.875rem;
+      color: var(--color-text-secondary);
+      text-align: center;
+      margin-top: 1rem;
+    }
+    
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 3rem;
+    }
+    
+    .social-link {
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      color: var(--color-text);
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    
+    .social-link:hover {
+      background: var(--color-primary);
+      color: white;
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="/pages/fr/index.html" class="nav-brand">
+        <i class="fas fa-code"></i>
+        <span>CodeCraft Studio</span>
+      </a>
+      
+      <button class="mobile-menu-toggle" aria-label="Basculer le menu">
+        <i class="fas fa-bars"></i>
+      </button>
+      
+      <div class="nav-menu">
+        <a href="/pages/fr/index.html" class="nav-link">
+          <i class="fas fa-home"></i> Accueil
+        </a>
+        <a href="/pages/fr/editor.html" class="nav-link">
+          <i class="fas fa-code"></i> Éditeur
+        </a>
+        <a href="/pages/fr/templates.html" class="nav-link">
+          <i class="fas fa-layer-group"></i> Modèles
+        </a>
+        <a href="/pages/fr/features.html" class="nav-link">
+          <i class="fas fa-star"></i> Fonctionnalités
+        </a>
+        <a href="/pages/fr/documentation.html" class="nav-link">
+          <i class="fas fa-book"></i> Documentation
+        </a>
+        
+        <div class="nav-divider"></div>
+        
+        <div class="nav-actions">
+          <button id="theme-toggle" class="icon-button" aria-label="Changer le thème">
+            <i class="fas fa-moon"></i>
+          </button>
+          
+          <div class="language-selector">
+            <button class="language-button" aria-label="Sélectionner la langue">
+              <i class="fas fa-globe"></i>
+              <span class="lang-current">FR</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="language-dropdown">
+              <a href="/pages/fr/contact.html" class="lang-option active">
+                <span class="lang-flag">🇫🇷</span>
+                <span>Français</span>
+              </a>
+              <a href="/pages/en/contact.html" class="lang-option">
+                <span class="lang-flag">🇬🇧</span>
+                <span>English</span>
+              </a>
+              <a href="/pages/es/contact.html" class="lang-option">
+                <span class="lang-flag">🇪🇸</span>
+                <span>Español</span>
+              </a>
+              <a href="/pages/de/contact.html" class="lang-option">
+                <span class="lang-flag">🇩🇪</span>
+                <span>Deutsch</span>
+              </a>
+              <a href="/pages/pt/contact.html" class="lang-option">
+                <span class="lang-flag">🇵🇹</span>
+                <span>Português</span>
+              </a>
+              <a href="/pages/it/contact.html" class="lang-option">
+                <span class="lang-flag">🇮🇹</span>
+                <span>Italiano</span>
+              </a>
+              <a href="/pages/ja/contact.html" class="lang-option">
+                <span class="lang-flag">🇯🇵</span>
+                <span>日本語</span>
+              </a>
+              <a href="/pages/ru/contact.html" class="lang-option">
+                <span class="lang-flag">🇷🇺</span>
+                <span>Русский</span>
+              </a>
+              <a href="/pages/zh/contact.html" class="lang-option">
+                <span class="lang-flag">🇨🇳</span>
+                <span>中文</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="contact-hero">
+    <h1>Contactez-Nous</h1>
+    <p>Nous sommes là pour vous aider. Envoyez-nous un message et nous vous répondrons dans les plus brefs délais.</p>
+  </section>
+
+  <!-- Contact Content -->
+  <div class="contact-content">
+    <!-- Contact Cards -->
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="contact-icon">
+          <i class="fas fa-envelope"></i>
+        </div>
+        <h3>Email</h3>
+        <p>Envoyez-nous un email et nous vous répondrons sous 24-48 heures.</p>
+        <a href="mailto:hello@codecraft.studio">
+          hello@codecraft.studio <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-icon">
+          <i class="fab fa-github"></i>
+        </div>
+        <h3>GitHub</h3>
+        <p>Signalez des bugs, demandez des fonctionnalités ou contribuez au code source ouvert.</p>
+        <a href="https://github.com/codecraft-studio" target="_blank">
+          Voir sur GitHub <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-icon">
+          <i class="fab fa-discord"></i>
+        </div>
+        <h3>Discord</h3>
+        <p>Rejoignez notre communauté pour obtenir de l'aide et partager des projets.</p>
+        <a href="https://discord.gg/codecraft" target="_blank">
+          Rejoindre Discord <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="contact-form-section">
+      <h2 class="form-title">Envoyez-Nous un Message</h2>
+      <p class="form-description">
+        Remplissez le formulaire ci-dessous et nous vous contacterons bientôt.
+      </p>
+      
+      <form id="contact-form">
+        <div class="form-group">
+          <label for="name" class="form-label">
+            Nom <span class="form-required">*</span>
+          </label>
+          <input 
+            type="text" 
+            id="name" 
+            name="name" 
+            class="form-input" 
+            required 
+            placeholder="Votre nom complet"
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="email" class="form-label">
+            Email <span class="form-required">*</span>
+          </label>
+          <input 
+            type="email" 
+            id="email" 
+            name="email" 
+            class="form-input" 
+            required 
+            placeholder="votre@email.com"
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="subject" class="form-label">
+            Sujet <span class="form-required">*</span>
+          </label>
+          <input 
+            type="text" 
+            id="subject" 
+            name="subject" 
+            class="form-input" 
+            required 
+            placeholder="Comment pouvons-nous vous aider ?"
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="message" class="form-label">
+            Message <span class="form-required">*</span>
+          </label>
+          <textarea 
+            id="message" 
+            name="message" 
+            class="form-textarea" 
+            required 
+            placeholder="Parlez-nous de votre demande..."
+          ></textarea>
+        </div>
+
+        <button type="submit" class="form-button">
+          <i class="fas fa-paper-plane"></i>
+          Envoyer le Message
+        </button>
+
+        <p class="form-note">
+          En soumettant ce formulaire, vous acceptez notre 
+          <a href="/pages/fr/privacy.html" style="color: var(--color-primary);">Politique de Confidentialité</a>
+        </p>
+      </form>
+    </div>
+
+    <!-- Social Links -->
+    <div class="social-links">
+      <a href="https://github.com/codecraft-studio" class="social-link" target="_blank" aria-label="GitHub">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="https://twitter.com/codecraft" class="social-link" target="_blank" aria-label="Twitter">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="https://discord.gg/codecraft" class="social-link" target="_blank" aria-label="Discord">
+        <i class="fab fa-discord"></i>
+      </a>
+      <a href="https://linkedin.com/company/codecraft-studio" class="social-link" target="_blank" aria-label="LinkedIn">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-column">
+          <div class="footer-brand">
+            <i class="fas fa-code"></i>
+            <span>CodeCraft Studio</span>
+          </div>
+          <p class="footer-description">
+            Éditeur de code professionnel en ligne pour le développement web moderne.
+          </p>
+        </div>
+        
+        <div class="footer-column">
+          <h3 class="footer-title">Produit</h3>
+          <ul class="footer-links">
+            <li><a href="/pages/fr/editor.html">Éditeur</a></li>
+            <li><a href="/pages/fr/templates.html">Modèles</a></li>
+            <li><a href="/pages/fr/features.html">Fonctionnalités</a></li>
+            <li><a href="/pages/fr/documentation.html">Documentation</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3 class="footer-title">Entreprise</h3>
+          <ul class="footer-links">
+            <li><a href="/pages/fr/about.html">À propos</a></li>
+            <li><a href="/pages/fr/contact.html">Contact</a></li>
+            <li><a href="/pages/fr/privacy.html">Confidentialité</a></li>
+            <li><a href="/pages/fr/terms.html">Conditions</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3 class="footer-title">Communauté</h3>
+          <ul class="footer-links">
+            <li><a href="https://github.com/codecraft-studio" target="_blank">GitHub</a></li>
+            <li><a href="https://twitter.com/codecraft" target="_blank">Twitter</a></li>
+            <li><a href="https://discord.gg/codecraft" target="_blank">Discord</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p class="footer-copyright">
+          &copy; 2024 CodeCraft Studio. Tous droits réservés.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../scripts/main-ui.js"></script>
+  <script>
+    // Simple form handling (client-side only - would need backend for real submission)
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // In a real application, this would send to a backend
+      alert('Merci pour votre message ! Veuillez envoyer votre demande directement à hello@codecraft.studio car il s\'agit d\'un formulaire de démonstration.');
+      
+      // Reset form
+      this.reset();
+    });
+  </script>
+</body>
+</html>

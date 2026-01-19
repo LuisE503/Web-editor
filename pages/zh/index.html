@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <!-- Essential Meta Tags -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <!-- SEO Meta Tags -->
+  <title>CodeCraft Studio - 专业在线代码编辑器 | HTML, CSS, JavaScript</title>
+  <meta name="description" content="用于HTML、CSS和JavaScript的专业在线代码编辑器。使用我们强大的IDE实时创建、测试和分享您的Web项目。免费且开源。">
+  <meta name="keywords" content="代码编辑器, 在线IDE, HTML编辑器, CSS编辑器, JavaScript编辑器, Web开发, 代码练习场, 代码沙盒, 前端开发">
+  <meta name="author" content="CodeCraft Studio">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://codecraft.studio/zh/">
+  
+  <!-- Open Graph Meta Tags (Facebook, LinkedIn) -->
+  <meta property="og:title" content="CodeCraft Studio - 专业在线代码编辑器">
+  <meta property="og:description" content="用于HTML、CSS和JavaScript的专业在线代码编辑器。实时创建、测试和分享您的Web项目。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://codecraft.studio/zh/">
+  <meta property="og:image" content="https://codecraft.studio/assets/og-image.png">
+  <meta property="og:site_name" content="CodeCraft Studio">
+  <meta property="og:locale" content="zh_CN">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CodeCraft Studio - 专业在线代码编辑器">
+  <meta name="twitter:description" content="用于HTML、CSS和JavaScript的专业在线代码编辑器。实时创建、测试和分享您的Web项目。">
+  <meta name="twitter:image" content="https://codecraft.studio/assets/twitter-image.png">
+  
+  <!-- Structured Data (JSON-LD) for Rich Snippets -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "CodeCraft Studio",
+    "description": "用于HTML、CSS和JavaScript的专业在线代码编辑器",
+    "url": "https://codecraft.studio",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Web Browser",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "featureList": "HTML编辑器, CSS编辑器, JavaScript编辑器, 实时预览, 模板库, 项目管理, 多语言支持",
+    "screenshot": "https://codecraft.studio/assets/screenshot.png",
+    "softwareVersion": "1.0.0",
+    "inLanguage": "zh",
+    "potentialAction": {
+      "@type": "UseAction",
+      "target": "https://codecraft.studio/zh/editor.html"
+    }
+  }
+  </script>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="alternate icon" href="/assets/favicon.ico">
+  
+  <!-- Alternate Languages (hreflang) -->
+  <link rel="alternate" hreflang="es" href="/pages/es/index.html">
+  <link rel="alternate" hreflang="en" href="/pages/en/index.html">
+  <link rel="alternate" hreflang="de" href="/pages/de/index.html">
+  <link rel="alternate" hreflang="fr" href="/pages/fr/index.html">
+  <link rel="alternate" hreflang="pt" href="/pages/pt/index.html">
+  <link rel="alternate" hreflang="it" href="/pages/it/index.html">
+  <link rel="alternate" hreflang="ja" href="/pages/ja/index.html">
+  <link rel="alternate" hreflang="ru" href="/pages/ru/index.html">
+  <link rel="alternate" hreflang="zh" href="/pages/zh/index.html">
+  <link rel="alternate" hreflang="x-default" href="/index.html">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../../styles/base.css">
+  <link rel="stylesheet" href="../../styles/themes.css">
+  <link rel="stylesheet" href="../../styles/ui.css">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="/pages/zh/index.html" class="nav-brand">
+        <i class="fas fa-code"></i>
+        <span>CodeCraft Studio</span>
+      </a>
+      
+      <button class="mobile-menu-toggle" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </button>
+      
+      <div class="nav-menu">
+        <a href="/pages/zh/index.html" class="nav-link active">
+          <i class="fas fa-home"></i> 首页
+        </a>
+        <a href="/pages/zh/editor.html" class="nav-link">
+          <i class="fas fa-code"></i> 编辑器
+        </a>
+        <a href="/pages/zh/templates.html" class="nav-link">
+          <i class="fas fa-layer-group"></i> 模板
+        </a>
+        <a href="/pages/zh/features.html" class="nav-link">
+          <i class="fas fa-star"></i> 功能
+        </a>
+        <a href="/pages/zh/documentation.html" class="nav-link">
+          <i class="fas fa-book"></i> 文档
+        </a>
+        
+        <div class="nav-divider"></div>
+        
+        <div class="nav-actions">
+          <button id="theme-toggle" class="icon-button" aria-label="Toggle theme">
+            <i class="fas fa-moon"></i>
+          </button>
+          
+          <div class="language-selector">
+            <button class="language-button" aria-label="Select language">
+              <i class="fas fa-globe"></i>
+              <span class="lang-current">ZH</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="language-dropdown">
+              <a href="/pages/es/index.html" class="lang-option">
+                <span class="lang-flag">🇪🇸</span>
+                <span>Español</span>
+              </a>
+              <a href="/pages/en/index.html" class="lang-option">
+                <span class="lang-flag">🇬🇧</span>
+                <span>English</span>
+              </a>
+              <a href="/pages/de/index.html" class="lang-option">
+                <span class="lang-flag">🇩🇪</span>
+                <span>Deutsch</span>
+              </a>
+              <a href="/pages/fr/index.html" class="lang-option">
+                <span class="lang-flag">🇫🇷</span>
+                <span>Français</span>
+              </a>
+              <a href="/pages/pt/index.html" class="lang-option">
+                <span class="lang-flag">🇵🇹</span>
+                <span>Português</span>
+              </a>
+              <a href="/pages/it/index.html" class="lang-option">
+                <span class="lang-flag">🇮🇹</span>
+                <span>Italiano</span>
+              </a>
+              <a href="/pages/ja/index.html" class="lang-option">
+                <span class="lang-flag">🇯🇵</span>
+                <span>日本語</span>
+              </a>
+              <a href="/pages/ru/index.html" class="lang-option">
+                <span class="lang-flag">🇷🇺</span>
+                <span>Русский</span>
+              </a>
+              <a href="/pages/zh/index.html" class="lang-option active">
+                <span class="lang-flag">🇨🇳</span>
+                <span>中文</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title">
+          创建精彩的<br>
+          <span class="gradient-text">Web项目</span>
+        </h1>
+        <p class="hero-description">
+          用于HTML、CSS和JavaScript的专业在线代码编辑器。<br>
+          使用我们强大的IDE实时创建、测试和分享您的项目。
+        </p>
+        <div class="hero-actions">
+          <a href="/pages/zh/editor.html" class="btn btn-primary btn-lg">
+            <i class="fas fa-rocket"></i> 开始编码
+          </a>
+          <a href="/pages/zh/templates.html" class="btn btn-secondary btn-lg">
+            <i class="fas fa-layer-group"></i> 探索模板
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <div class="stat-value">100%</div>
+            <div class="stat-label">免费</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">∞</div>
+            <div class="stat-label">项目</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">9+</div>
+            <div class="stat-label">语言</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">强大功能</h2>
+        <p class="section-description">创建精彩Web项目所需的一切</p>
+      </div>
+      
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-bolt"></i>
+          </div>
+          <h3 class="feature-title">实时预览</h3>
+          <p class="feature-description">
+            在您输入时即时查看更改。无需手动刷新。
+          </p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3 class="feature-title">语法高亮</h3>
+          <p class="feature-description">
+            由CodeMirror提供支持的高级语法高亮，提高代码可读性。
+          </p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-layer-group"></i>
+          </div>
+          <h3 class="feature-title">模板库</h3>
+          <p class="feature-description">
+            使用我们的专业模板和示例集合快速开始。
+          </p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-save"></i>
+          </div>
+          <h3 class="feature-title">自动保存</h3>
+          <p class="feature-description">
+            您的项目会自动保存到浏览器。永不丢失您的工作。
+          </p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-terminal"></i>
+          </div>
+          <h3 class="feature-title">控制台输出</h3>
+          <p class="feature-description">
+            内置控制台查看日志、错误并调试您的JavaScript代码。
+          </p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-mobile-alt"></i>
+          </div>
+          <h3 class="feature-title">响应式设计</h3>
+          <p class="feature-description">
+            在所有设备上完美运行。在台式机、平板电脑或手机上编码。
+          </p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-moon"></i>
+          </div>
+          <h3 class="feature-title">深色/浅色模式</h3>
+          <p class="feature-description">
+            在深色和浅色主题之间选择，获得舒适的编码体验。
+          </p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-globe"></i>
+          </div>
+          <h3 class="feature-title">多语言</h3>
+          <p class="feature-description">
+            支持9种以上语言。使用您喜欢的语言编码。
+          </p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-keyboard"></i>
+          </div>
+          <h3 class="feature-title">键盘快捷键</h3>
+          <p class="feature-description">
+            使用强大的键盘快捷键提高生产力。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="cta-title">准备开始创建了吗？</h2>
+        <p class="cta-description">
+          加入数千名使用CodeCraft Studio将创意变为现实的开发者
+        </p>
+        <a href="/pages/zh/editor.html" class="btn btn-primary btn-lg">
+          <i class="fas fa-rocket"></i> 启动编辑器
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-column">
+          <div class="footer-brand">
+            <i class="fas fa-code"></i>
+            <span>CodeCraft Studio</span>
+          </div>
+          <p class="footer-description">
+            现代Web开发的专业在线代码编辑器。
+            轻松创建、测试和分享您的项目。
+          </p>
+        </div>
+        
+        <div class="footer-column">
+          <h3 class="footer-title">产品</h3>
+          <ul class="footer-links">
+            <li><a href="/pages/zh/editor.html">编辑器</a></li>
+            <li><a href="/pages/zh/templates.html">模板</a></li>
+            <li><a href="/pages/zh/features.html">功能</a></li>
+            <li><a href="/pages/zh/documentation.html">文档</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3 class="footer-title">公司</h3>
+          <ul class="footer-links">
+            <li><a href="/pages/zh/about.html">关于</a></li>
+            <li><a href="/pages/zh/contact.html">联系</a></li>
+            <li><a href="/pages/zh/privacy.html">隐私</a></li>
+            <li><a href="/pages/zh/terms.html">条款</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3 class="footer-title">社区</h3>
+          <ul class="footer-links">
+            <li><a href="https://github.com/codecraft-studio" target="_blank">GitHub</a></li>
+            <li><a href="https://twitter.com/codecraft" target="_blank">Twitter</a></li>
+            <li><a href="https://discord.gg/codecraft" target="_blank">Discord</a></li>
+            <li><a href="/pages/zh/blog.html">博客</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p class="footer-copyright">
+          &copy; 2024 CodeCraft Studio. 保留所有权利。
+        </p>
+        <div class="footer-social">
+          <a href="https://github.com/codecraft-studio" target="_blank" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://twitter.com/codecraft" target="_blank" aria-label="Twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="https://discord.gg/codecraft" target="_blank" aria-label="Discord">
+            <i class="fab fa-discord"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../../scripts/main-ui.js"></script>
+</body>
+</html>

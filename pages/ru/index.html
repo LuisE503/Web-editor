@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <!-- Essential Meta Tags -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <!-- SEO Meta Tags -->
+  <title>CodeCraft Studio - Профессиональный Онлайн Редактор Кода | HTML, CSS, JavaScript</title>
+  <meta name="description" content="Профессиональный онлайн редактор кода для HTML, CSS и JavaScript. Создавайте, тестируйте и делитесь своими веб-проектами в реальном времени с нашей мощной IDE. Бесплатно и с открытым исходным кодом.">
+  <meta name="keywords" content="редактор кода, онлайн IDE, редактор HTML, редактор CSS, редактор JavaScript, веб-разработка, площадка для кода, песочница для кода, фронтенд-разработка">
+  <meta name="author" content="CodeCraft Studio">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://codecraft.studio/ru/">
+  
+  <!-- Open Graph Meta Tags (Facebook, LinkedIn) -->
+  <meta property="og:title" content="CodeCraft Studio - Профессиональный Онлайн Редактор Кода">
+  <meta property="og:description" content="Профессиональный онлайн редактор кода для HTML, CSS и JavaScript. Создавайте, тестируйте и делитесь своими веб-проектами в реальном времени.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://codecraft.studio/ru/">
+  <meta property="og:image" content="https://codecraft.studio/assets/og-image.png">
+  <meta property="og:site_name" content="CodeCraft Studio">
+  <meta property="og:locale" content="ru_RU">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CodeCraft Studio - Профессиональный Онлайн Редактор Кода">
+  <meta name="twitter:description" content="Профессиональный онлайн редактор кода для HTML, CSS и JavaScript. Создавайте, тестируйте и делитесь своими веб-проектами.">
+  <meta name="twitter:image" content="https://codecraft.studio/assets/twitter-image.png">
+  
+  <!-- Structured Data (JSON-LD) for Rich Snippets -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "CodeCraft Studio",
+    "description": "Профессиональный онлайн редактор кода для HTML, CSS и JavaScript",
+    "url": "https://codecraft.studio",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Web Browser",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "featureList": "Редактор HTML, редактор CSS, редактор JavaScript, Предпросмотр в реальном времени, Библиотека шаблонов, Управление проектами, Многоязычная поддержка",
+    "screenshot": "https://codecraft.studio/assets/screenshot.png",
+    "softwareVersion": "1.0.0",
+    "inLanguage": "ru",
+    "potentialAction": {
+      "@type": "UseAction",
+      "target": "https://codecraft.studio/ru/editor.html"
+    }
+  }
+  </script>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="alternate icon" href="/assets/favicon.ico">
+  
+  <!-- Alternate Languages (hreflang) -->
+  <link rel="alternate" hreflang="es" href="/pages/es/index.html">
+  <link rel="alternate" hreflang="en" href="/pages/en/index.html">
+  <link rel="alternate" hreflang="de" href="/pages/de/index.html">
+  <link rel="alternate" hreflang="fr" href="/pages/fr/index.html">
+  <link rel="alternate" hreflang="pt" href="/pages/pt/index.html">
+  <link rel="alternate" hreflang="it" href="/pages/it/index.html">
+  <link rel="alternate" hreflang="ja" href="/pages/ja/index.html">
+  <link rel="alternate" hreflang="ru" href="/pages/ru/index.html">
+  <link rel="alternate" hreflang="zh" href="/pages/zh/index.html">
+  <link rel="alternate" hreflang="x-default" href="/index.html">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../../styles/base.css">
+  <link rel="stylesheet" href="../../styles/themes.css">
+  <link rel="stylesheet" href="../../styles/ui.css">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="/pages/ru/index.html" class="nav-brand">
+        <i class="fas fa-code"></i>
+        <span>CodeCraft Studio</span>
+      </a>
+      
+      <button class="mobile-menu-toggle" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </button>
+      
+      <div class="nav-menu">
+        <a href="/pages/ru/index.html" class="nav-link active">
+          <i class="fas fa-home"></i> Главная
+        </a>
+        <a href="/pages/ru/editor.html" class="nav-link">
+          <i class="fas fa-code"></i> Редактор
+        </a>
+        <a href="/pages/ru/templates.html" class="nav-link">
+          <i class="fas fa-layer-group"></i> Шаблоны
+        </a>
+        <a href="/pages/ru/features.html" class="nav-link">
+          <i class="fas fa-star"></i> Возможности
+        </a>
+        <a href="/pages/ru/documentation.html" class="nav-link">
+          <i class="fas fa-book"></i> Документация
+        </a>
+        
+        <div class="nav-divider"></div>
+        
+        <div class="nav-actions">
+          <button id="theme-toggle" class="icon-button" aria-label="Toggle theme">
+            <i class="fas fa-moon"></i>
+          </button>
+          
+          <div class="language-selector">
+            <button class="language-button" aria-label="Select language">
+              <i class="fas fa-globe"></i>
+              <span class="lang-current">RU</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="language-dropdown">
+              <a href="/pages/es/index.html" class="lang-option">
+                <span class="lang-flag">🇪🇸</span>
+                <span>Español</span>
+              </a>
+              <a href="/pages/en/index.html" class="lang-option">
+                <span class="lang-flag">🇬🇧</span>
+                <span>English</span>
+              </a>
+              <a href="/pages/de/index.html" class="lang-option">
+                <span class="lang-flag">🇩🇪</span>
+                <span>Deutsch</span>
+              </a>
+              <a href="/pages/fr/index.html" class="lang-option">
+                <span class="lang-flag">🇫🇷</span>
+                <span>Français</span>
+              </a>
+              <a href="/pages/pt/index.html" class="lang-option">
+                <span class="lang-flag">🇵🇹</span>
+                <span>Português</span>
+              </a>
+              <a href="/pages/it/index.html" class="lang-option">
+                <span class="lang-flag">🇮🇹</span>
+                <span>Italiano</span>
+              </a>
+              <a href="/pages/ja/index.html" class="lang-option">
+                <span class="lang-flag">🇯🇵</span>
+                <span>日本語</span>
+              </a>
+              <a href="/pages/ru/index.html" class="lang-option active">
+                <span class="lang-flag">🇷🇺</span>
+                <span>Русский</span>
+              </a>
+              <a href="/pages/zh/index.html" class="lang-option">
+                <span class="lang-flag">🇨🇳</span>
+                <span>中文</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title">
+          Создавайте Потрясающие<br>
+          <span class="gradient-text">Веб-Проекты</span>
+        </h1>
+        <p class="hero-description">
+          Профессиональный онлайн редактор кода для HTML, CSS и JavaScript.<br>
+          Создавайте, тестируйте и делитесь своими проектами в реальном времени с нашей мощной IDE.
+        </p>
+        <div class="hero-actions">
+          <a href="/pages/ru/editor.html" class="btn btn-primary btn-lg">
+            <i class="fas fa-rocket"></i> Начать Программировать
+          </a>
+          <a href="/pages/ru/templates.html" class="btn btn-secondary btn-lg">
+            <i class="fas fa-layer-group"></i> Посмотреть Шаблоны
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <div class="stat-value">100%</div>
+            <div class="stat-label">Бесплатно</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">∞</div>
+            <div class="stat-label">Проекты</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">9+</div>
+            <div class="stat-label">Языки</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Мощные Возможности</h2>
+        <p class="section-description">Всё, что вам нужно для создания потрясающих веб-проектов</p>
+      </div>
+      
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-bolt"></i>
+          </div>
+          <h3 class="feature-title">Предпросмотр в Реальном Времени</h3>
+          <p class="feature-description">
+            Видите изменения мгновенно во время ввода. Не нужно обновлять вручную.
+          </p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3 class="feature-title">Подсветка Синтаксиса</h3>
+          <p class="feature-description">
+            Расширенная подсветка синтаксиса на основе CodeMirror для лучшей читаемости кода.
+          </p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-layer-group"></i>
+          </div>
+          <h3 class="feature-title">Библиотека Шаблонов</h3>
+          <p class="feature-description">
+            Быстрый старт с нашей коллекцией профессиональных шаблонов и примеров.
+          </p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-save"></i>
+          </div>
+          <h3 class="feature-title">Автосохранение</h3>
+          <p class="feature-description">
+            Ваши проекты автоматически сохраняются в вашем браузере. Никогда не потеряйте свою работу.
+          </p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-terminal"></i>
+          </div>
+          <h3 class="feature-title">Вывод Консоли</h3>
+          <p class="feature-description">
+            Встроенная консоль для просмотра логов, ошибок и отладки вашего JavaScript кода.
+          </p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-mobile-alt"></i>
+          </div>
+          <h3 class="feature-title">Адаптивный Дизайн</h3>
+          <p class="feature-description">
+            Отлично работает на всех устройствах. Программируйте на вашем компьютере, планшете или телефоне.
+          </p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-moon"></i>
+          </div>
+          <h3 class="feature-title">Тёмная/Светлая Тема</h3>
+          <p class="feature-description">
+            Выбирайте между тёмной и светлой темами для комфортного программирования.
+          </p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-globe"></i>
+          </div>
+          <h3 class="feature-title">Многоязычность</h3>
+          <p class="feature-description">
+            Доступно на 9+ языках. Программируйте на вашем предпочитаемом языке.
+          </p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-keyboard"></i>
+          </div>
+          <h3 class="feature-title">Горячие Клавиши</h3>
+          <p class="feature-description">
+            Повысьте производительность с помощью мощных горячих клавиш.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="cta-title">Готовы начать создавать?</h2>
+        <p class="cta-description">
+          Присоединяйтесь к тысячам разработчиков, использующих CodeCraft Studio для воплощения своих идей в жизнь
+        </p>
+        <a href="/pages/ru/editor.html" class="btn btn-primary btn-lg">
+          <i class="fas fa-rocket"></i> Запустить Редактор
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-column">
+          <div class="footer-brand">
+            <i class="fas fa-code"></i>
+            <span>CodeCraft Studio</span>
+          </div>
+          <p class="footer-description">
+            Профессиональный онлайн редактор кода для современной веб-разработки.
+            Создавайте, тестируйте и делитесь своими проектами с лёгкостью.
+          </p>
+        </div>
+        
+        <div class="footer-column">
+          <h3 class="footer-title">Продукт</h3>
+          <ul class="footer-links">
+            <li><a href="/pages/ru/editor.html">Редактор</a></li>
+            <li><a href="/pages/ru/templates.html">Шаблоны</a></li>
+            <li><a href="/pages/ru/features.html">Возможности</a></li>
+            <li><a href="/pages/ru/documentation.html">Документация</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3 class="footer-title">Компания</h3>
+          <ul class="footer-links">
+            <li><a href="/pages/ru/about.html">О нас</a></li>
+            <li><a href="/pages/ru/contact.html">Контакты</a></li>
+            <li><a href="/pages/ru/privacy.html">Конфиденциальность</a></li>
+            <li><a href="/pages/ru/terms.html">Условия</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3 class="footer-title">Сообщество</h3>
+          <ul class="footer-links">
+            <li><a href="https://github.com/codecraft-studio" target="_blank">GitHub</a></li>
+            <li><a href="https://twitter.com/codecraft" target="_blank">Twitter</a></li>
+            <li><a href="https://discord.gg/codecraft" target="_blank">Discord</a></li>
+            <li><a href="/pages/ru/blog.html">Блог</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p class="footer-copyright">
+          &copy; 2024 CodeCraft Studio. Все права защищены.
+        </p>
+        <div class="footer-social">
+          <a href="https://github.com/codecraft-studio" target="_blank" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://twitter.com/codecraft" target="_blank" aria-label="Twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="https://discord.gg/codecraft" target="_blank" aria-label="Discord">
+            <i class="fab fa-discord"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../../scripts/main-ui.js"></script>
+</body>
+</html>

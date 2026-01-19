@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <!-- Essential Meta Tags -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <!-- SEO Meta Tags -->
+  <title>Editor de Código - CodeCraft Studio | IDE Online para HTML, CSS, JavaScript</title>
+  <meta name="description" content="Editor de código profissional online com visualização em tempo real. Escreva, teste e execute código HTML, CSS e JavaScript instantaneamente no seu navegador. Gratuito e poderoso.">
+  <meta name="keywords" content="editor de código, IDE online, editor HTML, editor CSS, editor JavaScript, desenvolvimento web, playground de código">
+  <meta name="author" content="CodeCraft Studio">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Editor de Código - CodeCraft Studio">
+  <meta property="og:description" content="Editor de código profissional online com visualização em tempo real para HTML, CSS e JavaScript.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://codecraft.studio/pt/editor.html">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../../styles/base.css">
+  <link rel="stylesheet" href="../../styles/themes.css">
+  <link rel="stylesheet" href="../../styles/ui.css">
+  
+  <!-- CodeMirror -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/dracula.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/eclipse.min.css">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    /* Editor Layout */
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: var(--color-background);
+    }
+
+    .editor-container {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Top Bar */
+    .editor-header {
+      background: var(--color-surface);
+      border-bottom: 1px solid var(--color-border);
+      padding: 0.75rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      z-index: 100;
+    }
+
+    .editor-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 600;
+      color: var(--color-primary);
+      text-decoration: none;
+      font-size: 1.1rem;
+    }
+
+    .editor-brand i {
+      font-size: 1.3rem;
+    }
+
+    .editor-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex: 1;
+      flex-wrap: wrap;
+    }
+
+    .template-selector {
+      position: relative;
+    }
+
+    #template-select {
+      padding: 0.5rem 2rem 0.5rem 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: 0.375rem;
+      background: var(--color-surface-alt);
+      color: var(--color-text);
+      font-size: 0.875rem;
+      cursor: pointer;
+      appearance: none;
+      min-width: 200px;
+    }
+
+    #template-select:focus {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 2px;
+    }
+
+    .template-selector::after {
+      content: '\f107';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      position: absolute;
+      right: 0.75rem;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+      color: var(--color-text-secondary);
+    }
+
+    .editor-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-left: auto;
+    }
+
+    .btn {
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 0.375rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--color-primary);
+      color: var(--color-primary-text);
+    }
+
+    .btn-primary:hover {
+      background: var(--color-primary-hover);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-secondary {
+      background: var(--color-surface-alt);
+      color: var(--color-text);
+      border: 1px solid var(--color-border);
+    }
+
+    .btn-secondary:hover {
+      background: var(--color-surface-hover);
+    }
+
+    .btn-success {
+      background: var(--color-success);
+      color: white;
+    }
+
+    .btn-success:hover {
+      background: var(--color-success-hover);
+    }
+
+    .btn-danger {
+      background: var(--color-danger);
+      color: white;
+    }
+
+    .btn-danger:hover {
+      background: var(--color-danger-hover);
+    }
+
+    .icon-button {
+      width: 2.5rem;
+      height: 2.5rem;
+      border: none;
+      border-radius: 0.375rem;
+      background: var(--color-surface-alt);
+      color: var(--color-text);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+      border: 1px solid var(--color-border);
+    }
+
+    .icon-button:hover {
+      background: var(--color-surface-hover);
+      transform: translateY(-1px);
+    }
+
+    /* Editor Main Content */
+    .editor-main {
+      display: flex;
+      flex: 1;
+      overflow: hidden;
+    }
+
+    .code-panel {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      border-right: 1px solid var(--color-border);
+      background: var(--color-surface);
+      overflow: hidden;
+    }
+
+    .editor-tabs {
+      display: flex;
+      background: var(--color-surface-alt);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .editor-tab {
+      padding: 0.75rem 1.5rem;
+      background: transparent;
+      border: none;
+      color: var(--color-text-secondary);
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 0.875rem;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .editor-tab:hover {
+      background: var(--color-surface-hover);
+      color: var(--color-text);
+    }
+
+    .editor-tab.active {
+      color: var(--color-primary);
+      border-bottom-color: var(--color-primary);
+      background: var(--color-surface);
+    }
+
+    .editor-content {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .code-editor {
+      height: 100%;
+      display: none;
+    }
+
+    .code-editor.active {
+      display: block;
+    }
+
+    .CodeMirror {
+      height: 100% !important;
+      font-family: 'Fira Code', 'Consolas', monospace;
+      font-size: 14px;
+    }
+
+    .preview-panel {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      background: var(--color-surface);
+      overflow: hidden;
+    }
+
+    .preview-header {
+      padding: 0.75rem 1rem;
+      background: var(--color-surface-alt);
+      border-bottom: 1px solid var(--color-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .preview-title {
+      font-weight: 600;
+      font-size: 0.875rem;
+      color: var(--color-text);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    #preview-frame {
+      flex: 1;
+      border: none;
+      background: white;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Console */
+    .console-panel {
+      height: 200px;
+      background: var(--color-surface);
+      border-top: 1px solid var(--color-border);
+      display: flex;
+      flex-direction: column;
+      resize: vertical;
+      overflow: auto;
+      min-height: 100px;
+      max-height: 400px;
+    }
+
+    .console-header {
+      padding: 0.5rem 1rem;
+      background: var(--color-surface-alt);
+      border-bottom: 1px solid var(--color-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .console-title {
+      font-weight: 600;
+      font-size: 0.875rem;
+      color: var(--color-text);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .console-output {
+      flex: 1;
+      padding: 0.5rem;
+      overflow-y: auto;
+      font-family: 'Fira Code', 'Consolas', monospace;
+      font-size: 0.813rem;
+      line-height: 1.5;
+    }
+
+    .console-message {
+      padding: 0.25rem 0.5rem;
+      margin: 0.125rem 0;
+      border-left: 3px solid transparent;
+      word-wrap: break-word;
+    }
+
+    .console-message.log {
+      color: var(--color-text);
+      border-left-color: var(--color-info);
+    }
+
+    .console-message.error {
+      color: var(--color-danger);
+      border-left-color: var(--color-danger);
+      background: var(--color-danger-bg);
+    }
+
+    .console-message.warn {
+      color: var(--color-warning);
+      border-left-color: var(--color-warning);
+      background: var(--color-warning-bg);
+    }
+
+    .console-message.info {
+      color: var(--color-info);
+      border-left-color: var(--color-info);
+      background: var(--color-info-bg);
+    }
+
+    /* Notifications */
+    .notification-container {
+      position: fixed;
+      top: 80px;
+      right: 20px;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      max-width: 400px;
+    }
+
+    .notification {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 0.5rem;
+      padding: 1rem;
+      box-shadow: var(--shadow-xl);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      animation: slideInRight 0.3s ease;
+    }
+
+    .notification-icon {
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+
+    .notification-content {
+      flex: 1;
+    }
+
+    .notification-title {
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+      font-size: 0.875rem;
+    }
+
+    .notification-message {
+      font-size: 0.813rem;
+      color: var(--color-text-secondary);
+    }
+
+    .notification-close {
+      background: none;
+      border: none;
+      color: var(--color-text-secondary);
+      cursor: pointer;
+      padding: 0.25rem;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0.25rem;
+      transition: all 0.2s;
+    }
+
+    .notification-close:hover {
+      background: var(--color-surface-hover);
+      color: var(--color-text);
+    }
+
+    .notification.success {
+      border-left: 4px solid var(--color-success);
+    }
+
+    .notification.success .notification-icon {
+      color: var(--color-success);
+    }
+
+    .notification.error {
+      border-left: 4px solid var(--color-danger);
+    }
+
+    .notification.error .notification-icon {
+      color: var(--color-danger);
+    }
+
+    .notification.warning {
+      border-left: 4px solid var(--color-warning);
+    }
+
+    .notification.warning .notification-icon {
+      color: var(--color-warning);
+    }
+
+    .notification.info {
+      border-left: 4px solid var(--color-info);
+    }
+
+    .notification.info .notification-icon {
+      color: var(--color-info);
+    }
+
+    @keyframes slideInRight {
+      from {
+        opacity: 0;
+        transform: translateX(100%);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .editor-main {
+        flex-direction: column;
+      }
+      
+      .code-panel,
+      .preview-panel {
+        border-right: none;
+        border-bottom: 1px solid var(--color-border);
+      }
+
+      .console-panel {
+        height: 150px;
+      }
+
+      .btn span {
+        display: none;
+      }
+
+      .notification-container {
+        left: 1rem;
+        right: 1rem;
+        max-width: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="editor-container">
+    <!-- Top Bar -->
+    <div class="editor-header">
+      <a href="/pages/pt/index.html" class="editor-brand">
+        <i class="fas fa-code"></i>
+        <span>CodeCraft Studio</span>
+      </a>
+      
+      <div class="editor-controls">
+        <div class="template-selector">
+          <select id="template-select">
+            <option value="">Selecione um modelo...</option>
+          </select>
+        </div>
+        
+        <button id="new-btn" class="btn btn-secondary" title="Novo Projeto (Ctrl+N)">
+          <i class="fas fa-file"></i>
+          <span>Novo</span>
+        </button>
+        
+        <button id="save-btn" class="btn btn-secondary" title="Salvar Projeto (Ctrl+S)">
+          <i class="fas fa-save"></i>
+          <span>Salvar</span>
+        </button>
+        
+        <button id="load-btn" class="btn btn-secondary" title="Carregar Projeto">
+          <i class="fas fa-folder-open"></i>
+          <span>Carregar</span>
+        </button>
+      </div>
+      
+      <div class="editor-actions">
+        <button id="run-btn" class="btn btn-success" title="Executar Código (Ctrl+Enter)">
+          <i class="fas fa-play"></i>
+          <span>Executar</span>
+        </button>
+        
+        <button id="clear-console-btn" class="btn btn-danger" title="Limpar Console (Ctrl+K)">
+          <i class="fas fa-eraser"></i>
+          <span>Limpar</span>
+        </button>
+        
+        <button id="theme-toggle" class="icon-button" title="Alternar Tema">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Editor Main Content -->
+    <div class="editor-main">
+      <!-- Code Panel -->
+      <div class="code-panel">
+        <div class="editor-tabs">
+          <button class="editor-tab active" data-editor="html">
+            <i class="fab fa-html5"></i>
+            HTML
+          </button>
+          <button class="editor-tab" data-editor="css">
+            <i class="fab fa-css3-alt"></i>
+            CSS
+          </button>
+          <button class="editor-tab" data-editor="js">
+            <i class="fab fa-js"></i>
+            JavaScript
+          </button>
+        </div>
+        
+        <div class="editor-content">
+          <div id="html-editor" class="code-editor active"></div>
+          <div id="css-editor" class="code-editor"></div>
+          <div id="js-editor" class="code-editor"></div>
+        </div>
+      </div>
+
+      <!-- Preview Panel -->
+      <div class="preview-panel">
+        <div class="preview-header">
+          <div class="preview-title">
+            <i class="fas fa-eye"></i>
+            Visualização
+          </div>
+        </div>
+        <iframe id="preview-frame" sandbox="allow-scripts allow-modals"></iframe>
+      </div>
+    </div>
+
+    <!-- Console -->
+    <div class="console-panel">
+      <div class="console-header">
+        <div class="console-title">
+          <i class="fas fa-terminal"></i>
+          Console
+        </div>
+      </div>
+      <div id="console-output" class="console-output"></div>
+    </div>
+  </div>
+
+  <!-- Notification Container -->
+  <div id="notification-container" class="notification-container"></div>
+
+  <!-- CodeMirror Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/htmlmixed/htmlmixed.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/css/css.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/javascript/javascript.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/xml/xml.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/edit/closetag.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/edit/closebrackets.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/edit/matchbrackets.min.js"></script>
+
+  <!-- Editor Script -->
+  <script src="../../scripts/editor.js"></script>
+</body>
+</html>

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <!-- Essential Meta Tags -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <!-- SEO Meta Tags -->
+  <title>CodeCraft Studio - プロフェッショナルオンラインコードエディター | HTML, CSS, JavaScript</title>
+  <meta name="description" content="HTML、CSS、JavaScriptのためのプロフェッショナルオンラインコードエディター。強力なIDEでリアルタイムにウェブプロジェクトを作成、テスト、共有。無料でオープンソース。">
+  <meta name="keywords" content="コードエディター, オンラインIDE, HTMLエディター, CSSエディター, JavaScriptエディター, ウェブ開発, コードプレイグラウンド, コードサンドボックス, フロントエンド開発">
+  <meta name="author" content="CodeCraft Studio">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://codecraft.studio/ja/">
+  
+  <!-- Open Graph Meta Tags (Facebook, LinkedIn) -->
+  <meta property="og:title" content="CodeCraft Studio - プロフェッショナルオンラインコードエディター">
+  <meta property="og:description" content="HTML、CSS、JavaScriptのためのプロフェッショナルオンラインコードエディター。リアルタイムでウェブプロジェクトを作成、テスト、共有。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://codecraft.studio/ja/">
+  <meta property="og:image" content="https://codecraft.studio/assets/og-image.png">
+  <meta property="og:site_name" content="CodeCraft Studio">
+  <meta property="og:locale" content="ja_JP">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CodeCraft Studio - プロフェッショナルオンラインコードエディター">
+  <meta name="twitter:description" content="HTML、CSS、JavaScriptのためのプロフェッショナルオンラインコードエディター。リアルタイムでウェブプロジェクトを作成、テスト、共有。">
+  <meta name="twitter:image" content="https://codecraft.studio/assets/twitter-image.png">
+  
+  <!-- Structured Data (JSON-LD) for Rich Snippets -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "CodeCraft Studio",
+    "description": "HTML、CSS、JavaScriptのためのプロフェッショナルオンラインコードエディター",
+    "url": "https://codecraft.studio",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Web Browser",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "featureList": "HTMLエディター, CSSエディター, JavaScriptエディター, リアルタイムプレビュー, テンプレートライブラリ, プロジェクト管理, 多言語サポート",
+    "screenshot": "https://codecraft.studio/assets/screenshot.png",
+    "softwareVersion": "1.0.0",
+    "inLanguage": "ja",
+    "potentialAction": {
+      "@type": "UseAction",
+      "target": "https://codecraft.studio/ja/editor.html"
+    }
+  }
+  </script>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="alternate icon" href="/assets/favicon.ico">
+  
+  <!-- Alternate Languages (hreflang) -->
+  <link rel="alternate" hreflang="es" href="/pages/es/index.html">
+  <link rel="alternate" hreflang="en" href="/pages/en/index.html">
+  <link rel="alternate" hreflang="de" href="/pages/de/index.html">
+  <link rel="alternate" hreflang="fr" href="/pages/fr/index.html">
+  <link rel="alternate" hreflang="pt" href="/pages/pt/index.html">
+  <link rel="alternate" hreflang="it" href="/pages/it/index.html">
+  <link rel="alternate" hreflang="ja" href="/pages/ja/index.html">
+  <link rel="alternate" hreflang="ru" href="/pages/ru/index.html">
+  <link rel="alternate" hreflang="zh" href="/pages/zh/index.html">
+  <link rel="alternate" hreflang="x-default" href="/index.html">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../../styles/base.css">
+  <link rel="stylesheet" href="../../styles/themes.css">
+  <link rel="stylesheet" href="../../styles/ui.css">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="/pages/ja/index.html" class="nav-brand">
+        <i class="fas fa-code"></i>
+        <span>CodeCraft Studio</span>
+      </a>
+      
+      <button class="mobile-menu-toggle" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </button>
+      
+      <div class="nav-menu">
+        <a href="/pages/ja/index.html" class="nav-link active">
+          <i class="fas fa-home"></i> ホーム
+        </a>
+        <a href="/pages/ja/editor.html" class="nav-link">
+          <i class="fas fa-code"></i> エディター
+        </a>
+        <a href="/pages/ja/templates.html" class="nav-link">
+          <i class="fas fa-layer-group"></i> テンプレート
+        </a>
+        <a href="/pages/ja/features.html" class="nav-link">
+          <i class="fas fa-star"></i> 機能
+        </a>
+        <a href="/pages/ja/documentation.html" class="nav-link">
+          <i class="fas fa-book"></i> ドキュメント
+        </a>
+        
+        <div class="nav-divider"></div>
+        
+        <div class="nav-actions">
+          <button id="theme-toggle" class="icon-button" aria-label="Toggle theme">
+            <i class="fas fa-moon"></i>
+          </button>
+          
+          <div class="language-selector">
+            <button class="language-button" aria-label="Select language">
+              <i class="fas fa-globe"></i>
+              <span class="lang-current">JA</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="language-dropdown">
+              <a href="/pages/es/index.html" class="lang-option">
+                <span class="lang-flag">🇪🇸</span>
+                <span>Español</span>
+              </a>
+              <a href="/pages/en/index.html" class="lang-option">
+                <span class="lang-flag">🇬🇧</span>
+                <span>English</span>
+              </a>
+              <a href="/pages/de/index.html" class="lang-option">
+                <span class="lang-flag">🇩🇪</span>
+                <span>Deutsch</span>
+              </a>
+              <a href="/pages/fr/index.html" class="lang-option">
+                <span class="lang-flag">🇫🇷</span>
+                <span>Français</span>
+              </a>
+              <a href="/pages/pt/index.html" class="lang-option">
+                <span class="lang-flag">🇵🇹</span>
+                <span>Português</span>
+              </a>
+              <a href="/pages/it/index.html" class="lang-option">
+                <span class="lang-flag">🇮🇹</span>
+                <span>Italiano</span>
+              </a>
+              <a href="/pages/ja/index.html" class="lang-option active">
+                <span class="lang-flag">🇯🇵</span>
+                <span>日本語</span>
+              </a>
+              <a href="/pages/ru/index.html" class="lang-option">
+                <span class="lang-flag">🇷🇺</span>
+                <span>Русский</span>
+              </a>
+              <a href="/pages/zh/index.html" class="lang-option">
+                <span class="lang-flag">🇨🇳</span>
+                <span>中文</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title">
+          素晴らしい<br>
+          <span class="gradient-text">ウェブプロジェクトを作成</span>
+        </h1>
+        <p class="hero-description">
+          HTML、CSS、JavaScriptのためのプロフェッショナルオンラインコードエディター。<br>
+          強力なIDEでリアルタイムにプロジェクトを作成、テスト、共有。
+        </p>
+        <div class="hero-actions">
+          <a href="/pages/ja/editor.html" class="btn btn-primary btn-lg">
+            <i class="fas fa-rocket"></i> コーディングを開始
+          </a>
+          <a href="/pages/ja/templates.html" class="btn btn-secondary btn-lg">
+            <i class="fas fa-layer-group"></i> テンプレートを探索
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <div class="stat-value">100%</div>
+            <div class="stat-label">無料</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">∞</div>
+            <div class="stat-label">プロジェクト</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">9+</div>
+            <div class="stat-label">言語</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">強力な機能</h2>
+        <p class="section-description">素晴らしいウェブプロジェクトを作成するために必要なすべて</p>
+      </div>
+      
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-bolt"></i>
+          </div>
+          <h3 class="feature-title">リアルタイムプレビュー</h3>
+          <p class="feature-description">
+            入力しながら変更を即座に確認できます。手動でリフレッシュする必要はありません。
+          </p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3 class="feature-title">シンタックスハイライト</h3>
+          <p class="feature-description">
+            CodeMirrorを搭載した高度なシンタックスハイライトで、コードの可読性を向上。
+          </p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-layer-group"></i>
+          </div>
+          <h3 class="feature-title">テンプレートライブラリ</h3>
+          <p class="feature-description">
+            プロフェッショナルなテンプレートと例のコレクションで素早く開始。
+          </p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-save"></i>
+          </div>
+          <h3 class="feature-title">自動保存</h3>
+          <p class="feature-description">
+            プロジェクトはブラウザに自動的に保存されます。作業を失うことはありません。
+          </p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-terminal"></i>
+          </div>
+          <h3 class="feature-title">コンソール出力</h3>
+          <p class="feature-description">
+            組み込みコンソールでログ、エラーを表示し、JavaScriptコードをデバッグ。
+          </p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-mobile-alt"></i>
+          </div>
+          <h3 class="feature-title">レスポンシブデザイン</h3>
+          <p class="feature-description">
+            すべてのデバイスで完璧に動作。デスクトップ、タブレット、スマートフォンでコーディング。
+          </p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-moon"></i>
+          </div>
+          <h3 class="feature-title">ダーク/ライトモード</h3>
+          <p class="feature-description">
+            快適なコーディング体験のために、ダークテーマとライトテーマから選択。
+          </p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-globe"></i>
+          </div>
+          <h3 class="feature-title">多言語対応</h3>
+          <p class="feature-description">
+            9つ以上の言語で利用可能。お好みの言語でコーディング。
+          </p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-keyboard"></i>
+          </div>
+          <h3 class="feature-title">キーボードショートカット</h3>
+          <p class="feature-description">
+            強力なキーボードショートカットで生産性を向上。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="cta-title">作成を始める準備はできていますか？</h2>
+        <p class="cta-description">
+          CodeCraft Studioを使用してアイデアを実現している何千人もの開発者に参加
+        </p>
+        <a href="/pages/ja/editor.html" class="btn btn-primary btn-lg">
+          <i class="fas fa-rocket"></i> エディターを起動
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-column">
+          <div class="footer-brand">
+            <i class="fas fa-code"></i>
+            <span>CodeCraft Studio</span>
+          </div>
+          <p class="footer-description">
+            モダンなウェブ開発のためのプロフェッショナルオンラインコードエディター。
+            プロジェクトを簡単に作成、テスト、共有。
+          </p>
+        </div>
+        
+        <div class="footer-column">
+          <h3 class="footer-title">プロダクト</h3>
+          <ul class="footer-links">
+            <li><a href="/pages/ja/editor.html">エディター</a></li>
+            <li><a href="/pages/ja/templates.html">テンプレート</a></li>
+            <li><a href="/pages/ja/features.html">機能</a></li>
+            <li><a href="/pages/ja/documentation.html">ドキュメント</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3 class="footer-title">会社</h3>
+          <ul class="footer-links">
+            <li><a href="/pages/ja/about.html">会社概要</a></li>
+            <li><a href="/pages/ja/contact.html">お問い合わせ</a></li>
+            <li><a href="/pages/ja/privacy.html">プライバシー</a></li>
+            <li><a href="/pages/ja/terms.html">利用規約</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3 class="footer-title">コミュニティ</h3>
+          <ul class="footer-links">
+            <li><a href="https://github.com/codecraft-studio" target="_blank">GitHub</a></li>
+            <li><a href="https://twitter.com/codecraft" target="_blank">Twitter</a></li>
+            <li><a href="https://discord.gg/codecraft" target="_blank">Discord</a></li>
+            <li><a href="/pages/ja/blog.html">ブログ</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p class="footer-copyright">
+          &copy; 2024 CodeCraft Studio. All rights reserved.
+        </p>
+        <div class="footer-social">
+          <a href="https://github.com/codecraft-studio" target="_blank" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://twitter.com/codecraft" target="_blank" aria-label="Twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="https://discord.gg/codecraft" target="_blank" aria-label="Discord">
+            <i class="fab fa-discord"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../../scripts/main-ui.js"></script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>お問い合わせ - CodeCraft Studio</title>
+  <meta name="description" content="CodeCraft Studioチームへのお問い合わせ。ご質問やご提案をお待ちしております。">
+  <link rel="stylesheet" href="../../styles/base.css">
+  <link rel="stylesheet" href="../../styles/themes.css">
+  <link rel="stylesheet" href="../../styles/ui.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .contact-hero { background: linear-gradient(135deg, var(--color-primary), var(--color-primary-hover)); padding: 4rem 1rem; text-align: center; color: white; }
+    .contact-hero h1 { font-size: 3rem; font-weight: 700; margin-bottom: 1rem; }
+    .contact-hero p { font-size: 1.25rem; opacity: 0.9; max-width: 600px; margin: 0 auto; }
+    .contact-content { max-width: 1200px; margin: -3rem auto 0; padding: 0 1rem 4rem; }
+    .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 3rem; }
+    .contact-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 1rem; padding: 2rem; text-align: center; transition: all 0.3s; box-shadow: var(--shadow-md); }
+    .contact-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-xl); }
+    .contact-icon { width: 4rem; height: 4rem; background: var(--color-primary-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 1.75rem; color: var(--color-primary); }
+    .contact-card h3 { font-size: 1.25rem; font-weight: 600; color: var(--color-text-heading); margin-bottom: 0.75rem; }
+    .contact-card p { color: var(--color-text-secondary); margin-bottom: 1rem; line-height: 1.6; }
+    .contact-card a { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--color-primary); text-decoration: none; font-weight: 500; }
+    .contact-form-section { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 1rem; padding: 2.5rem; box-shadow: var(--shadow-md); max-width: 700px; margin: 0 auto; }
+    .form-title { font-size: 1.75rem; font-weight: 600; color: var(--color-text-heading); margin-bottom: 0.5rem; text-align: center; }
+    .form-description { color: var(--color-text-secondary); text-align: center; margin-bottom: 2rem; }
+    .form-group { margin-bottom: 1.5rem; }
+    .form-label { display: block; font-weight: 500; color: var(--color-text); margin-bottom: 0.5rem; }
+    .form-input, .form-textarea { width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--color-border); border-radius: 0.5rem; background: var(--color-surface-alt); color: var(--color-text); font-size: 1rem; }
+    .form-input:focus, .form-textarea:focus { outline: none; border-color: var(--color-primary); box-shadow: 0 0 0 3px var(--color-primary-light); }
+    .form-textarea { resize: vertical; min-height: 150px; font-family: inherit; }
+    .form-button { width: 100%; padding: 1rem; background: var(--color-primary); color: white; border: none; border-radius: 0.5rem; font-size: 1rem; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
+    .form-button:hover { background: var(--color-primary-hover); }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="/pages/ja/index.html" class="nav-brand"><i class="fas fa-code"></i><span>CodeCraft Studio</span></a>
+      <div class="nav-menu">
+        <a href="/pages/ja/index.html" class="nav-link"><i class="fas fa-home"></i> ホーム</a>
+        <a href="/pages/ja/editor.html" class="nav-link"><i class="fas fa-code"></i> エディター</a>
+        <a href="/pages/ja/templates.html" class="nav-link"><i class="fas fa-layer-group"></i> テンプレート</a>
+        <div class="nav-divider"></div>
+        <div class="nav-actions">
+          <button id="theme-toggle" class="icon-button"><i class="fas fa-moon"></i></button>
+          <div class="language-selector">
+            <button class="language-button"><i class="fas fa-globe"></i><span class="lang-current">JA</span><i class="fas fa-chevron-down"></i></button>
+            <div class="language-dropdown">
+              <a href="/pages/es/contact.html" class="lang-option"><span class="lang-flag">🇪🇸</span> Español</a>
+              <a href="/pages/en/contact.html" class="lang-option"><span class="lang-flag">🇬🇧</span> English</a>
+              <a href="/pages/de/contact.html" class="lang-option"><span class="lang-flag">🇩🇪</span> Deutsch</a>
+              <a href="/pages/fr/contact.html" class="lang-option"><span class="lang-flag">🇫🇷</span> Français</a>
+              <a href="/pages/pt/contact.html" class="lang-option"><span class="lang-flag">🇵🇹</span> Português</a>
+              <a href="/pages/it/contact.html" class="lang-option"><span class="lang-flag">🇮🇹</span> Italiano</a>
+              <a href="/pages/ja/contact.html" class="lang-option active"><span class="lang-flag">🇯🇵</span> 日本語</a>
+              <a href="/pages/ru/contact.html" class="lang-option"><span class="lang-flag">🇷🇺</span> Русский</a>
+              <a href="/pages/zh/contact.html" class="lang-option"><span class="lang-flag">🇨🇳</span> 中文</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="contact-hero">
+    <h1>お問い合わせ</h1>
+    <p>お手伝いいたします。メッセージをお送りいただければ、できるだけ早くご返答いたします。</p>
+  </section>
+
+  <div class="contact-content">
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+        <h3>メール</h3>
+        <p>メールをお送りいただければ、24〜48時間以内にご返答いたします。</p>
+        <a href="mailto:hello@codecraft.studio">hello@codecraft.studio <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon"><i class="fab fa-github"></i></div>
+        <h3>GitHub</h3>
+        <p>バグ報告、機能リクエスト、オープンソースへの貢献。</p>
+        <a href="https://github.com/codecraft-studio" target="_blank">GitHubで見る <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon"><i class="fab fa-discord"></i></div>
+        <h3>Discord</h3>
+        <p>コミュニティに参加して、ヘルプを得たりプロジェクトを共有したりしましょう。</p>
+        <a href="https://discord.gg/codecraft" target="_blank">Discordに参加 <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+
+    <div class="contact-form-section">
+      <h2 class="form-title">メッセージを送信</h2>
+      <p class="form-description">以下のフォームにご記入いただければ、すぐにご連絡いたします。</p>
+      <form id="contact-form">
+        <div class="form-group"><label for="name" class="form-label">名前 *</label><input type="text" id="name" class="form-input" required placeholder="お名前"></div>
+        <div class="form-group"><label for="email" class="form-label">メール *</label><input type="email" id="email" class="form-input" required placeholder="your@email.com"></div>
+        <div class="form-group"><label for="subject" class="form-label">件名 *</label><input type="text" id="subject" class="form-input" required placeholder="どのようなご用件ですか？"></div>
+        <div class="form-group"><label for="message" class="form-label">メッセージ *</label><textarea id="message" class="form-textarea" required placeholder="お問い合わせ内容を詳しくお聞かせください..."></textarea></div>
+        <button type="submit" class="form-button"><i class="fas fa-paper-plane"></i> メッセージを送信</button>
+      </form>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container"><div class="footer-bottom"><p class="footer-copyright">&copy; 2024 CodeCraft Studio. All rights reserved.</p></div></div>
+  </footer>
+  <script src="../../scripts/main-ui.js"></script>
+  <script>document.getElementById('contact-form').addEventListener('submit', function(e) { e.preventDefault(); alert('メッセージありがとうございます！hello@codecraft.studioまでお問い合わせをお送りください。'); this.reset(); });</script>
+</body>
+</html>

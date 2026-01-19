@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Essential Meta Tags -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <!-- SEO Meta Tags -->
+  <title>CodeCraft Studio - Éditeur de Code Professionnel en Ligne | HTML, CSS, JavaScript</title>
+  <meta name="description" content="Éditeur de code professionnel en ligne pour HTML, CSS et JavaScript. Créez, testez et partagez vos projets web en temps réel avec notre IDE puissant. Gratuit et open source.">
+  <meta name="keywords" content="éditeur de code, IDE en ligne, éditeur HTML, éditeur CSS, éditeur JavaScript, développement web, playground de code, sandbox de code, développement frontend">
+  <meta name="author" content="CodeCraft Studio">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://codecraft.studio/fr/">
+  
+  <!-- Open Graph Meta Tags (Facebook, LinkedIn) -->
+  <meta property="og:title" content="CodeCraft Studio - Éditeur de Code Professionnel">
+  <meta property="og:description" content="Éditeur de code professionnel en ligne pour HTML, CSS et JavaScript. Créez, testez et partagez vos projets web en temps réel.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://codecraft.studio/fr/">
+  <meta property="og:image" content="https://codecraft.studio/assets/og-image.png">
+  <meta property="og:site_name" content="CodeCraft Studio">
+  <meta property="og:locale" content="fr_FR">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CodeCraft Studio - Éditeur de Code Professionnel">
+  <meta name="twitter:description" content="Éditeur de code professionnel en ligne pour HTML, CSS et JavaScript. Créez, testez et partagez vos projets web.">
+  <meta name="twitter:image" content="https://codecraft.studio/assets/twitter-image.png">
+  
+  <!-- Structured Data (JSON-LD) for Rich Snippets -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "CodeCraft Studio",
+    "description": "Éditeur de code professionnel en ligne pour HTML, CSS et JavaScript",
+    "url": "https://codecraft.studio",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Web Browser",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "featureList": "Éditeur HTML, éditeur CSS, éditeur JavaScript, Aperçu en temps réel, Bibliothèque de modèles, Gestion de projets, Support multilingue",
+    "screenshot": "https://codecraft.studio/assets/screenshot.png",
+    "softwareVersion": "1.0.0",
+    "inLanguage": "fr",
+    "potentialAction": {
+      "@type": "UseAction",
+      "target": "https://codecraft.studio/fr/editor.html"
+    }
+  }
+  </script>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="alternate icon" href="/assets/favicon.ico">
+  
+  <!-- Alternate Languages (hreflang) -->
+  <link rel="alternate" hreflang="es" href="/pages/es/index.html">
+  <link rel="alternate" hreflang="en" href="/pages/en/index.html">
+  <link rel="alternate" hreflang="de" href="/pages/de/index.html">
+  <link rel="alternate" hreflang="fr" href="/pages/fr/index.html">
+  <link rel="alternate" hreflang="pt" href="/pages/pt/index.html">
+  <link rel="alternate" hreflang="it" href="/pages/it/index.html">
+  <link rel="alternate" hreflang="ja" href="/pages/ja/index.html">
+  <link rel="alternate" hreflang="ru" href="/pages/ru/index.html">
+  <link rel="alternate" hreflang="zh" href="/pages/zh/index.html">
+  <link rel="alternate" hreflang="x-default" href="/index.html">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../../styles/base.css">
+  <link rel="stylesheet" href="../../styles/themes.css">
+  <link rel="stylesheet" href="../../styles/ui.css">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="/pages/fr/index.html" class="nav-brand">
+        <i class="fas fa-code"></i>
+        <span>CodeCraft Studio</span>
+      </a>
+      
+      <button class="mobile-menu-toggle" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </button>
+      
+      <div class="nav-menu">
+        <a href="/pages/fr/index.html" class="nav-link active">
+          <i class="fas fa-home"></i> Accueil
+        </a>
+        <a href="/pages/fr/editor.html" class="nav-link">
+          <i class="fas fa-code"></i> Éditeur
+        </a>
+        <a href="/pages/fr/templates.html" class="nav-link">
+          <i class="fas fa-layer-group"></i> Modèles
+        </a>
+        <a href="/pages/fr/features.html" class="nav-link">
+          <i class="fas fa-star"></i> Fonctionnalités
+        </a>
+        <a href="/pages/fr/documentation.html" class="nav-link">
+          <i class="fas fa-book"></i> Documentation
+        </a>
+        
+        <div class="nav-divider"></div>
+        
+        <div class="nav-actions">
+          <button id="theme-toggle" class="icon-button" aria-label="Toggle theme">
+            <i class="fas fa-moon"></i>
+          </button>
+          
+          <div class="language-selector">
+            <button class="language-button" aria-label="Select language">
+              <i class="fas fa-globe"></i>
+              <span class="lang-current">FR</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="language-dropdown">
+              <a href="/pages/es/index.html" class="lang-option">
+                <span class="lang-flag">🇪🇸</span>
+                <span>Español</span>
+              </a>
+              <a href="/pages/en/index.html" class="lang-option">
+                <span class="lang-flag">🇬🇧</span>
+                <span>English</span>
+              </a>
+              <a href="/pages/de/index.html" class="lang-option">
+                <span class="lang-flag">🇩🇪</span>
+                <span>Deutsch</span>
+              </a>
+              <a href="/pages/fr/index.html" class="lang-option active">
+                <span class="lang-flag">🇫🇷</span>
+                <span>Français</span>
+              </a>
+              <a href="/pages/pt/index.html" class="lang-option">
+                <span class="lang-flag">🇵🇹</span>
+                <span>Português</span>
+              </a>
+              <a href="/pages/it/index.html" class="lang-option">
+                <span class="lang-flag">🇮🇹</span>
+                <span>Italiano</span>
+              </a>
+              <a href="/pages/ja/index.html" class="lang-option">
+                <span class="lang-flag">🇯🇵</span>
+                <span>日本語</span>
+              </a>
+              <a href="/pages/ru/index.html" class="lang-option">
+                <span class="lang-flag">🇷🇺</span>
+                <span>Русский</span>
+              </a>
+              <a href="/pages/zh/index.html" class="lang-option">
+                <span class="lang-flag">🇨🇳</span>
+                <span>中文</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title">
+          Créez d'Incroyables<br>
+          <span class="gradient-text">Projets Web</span>
+        </h1>
+        <p class="hero-description">
+          Éditeur de code professionnel en ligne pour HTML, CSS et JavaScript.<br>
+          Créez, testez et partagez vos projets en temps réel avec notre IDE puissant.
+        </p>
+        <div class="hero-actions">
+          <a href="/pages/fr/editor.html" class="btn btn-primary btn-lg">
+            <i class="fas fa-rocket"></i> Commencer à Coder
+          </a>
+          <a href="/pages/fr/templates.html" class="btn btn-secondary btn-lg">
+            <i class="fas fa-layer-group"></i> Explorer les Modèles
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <div class="stat-value">100%</div>
+            <div class="stat-label">Gratuit</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">∞</div>
+            <div class="stat-label">Projets</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">9+</div>
+            <div class="stat-label">Langues</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Fonctionnalités Puissantes</h2>
+        <p class="section-description">Tout ce dont vous avez besoin pour créer d'incroyables projets web</p>
+      </div>
+      
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-bolt"></i>
+          </div>
+          <h3 class="feature-title">Aperçu en Temps Réel</h3>
+          <p class="feature-description">
+            Voyez vos modifications instantanément pendant que vous tapez. Pas besoin de rafraîchir manuellement.
+          </p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3 class="feature-title">Coloration Syntaxique</h3>
+          <p class="feature-description">
+            Coloration syntaxique avancée alimentée par CodeMirror pour une meilleure lisibilité du code.
+          </p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-layer-group"></i>
+          </div>
+          <h3 class="feature-title">Bibliothèque de Modèles</h3>
+          <p class="feature-description">
+            Démarrez rapidement avec notre collection de modèles professionnels et d'exemples.
+          </p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-save"></i>
+          </div>
+          <h3 class="feature-title">Sauvegarde Automatique</h3>
+          <p class="feature-description">
+            Vos projets sont automatiquement sauvegardés dans votre navigateur. Ne perdez jamais votre travail.
+          </p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-terminal"></i>
+          </div>
+          <h3 class="feature-title">Sortie Console</h3>
+          <p class="feature-description">
+            Console intégrée pour afficher les logs, les erreurs et déboguer votre code JavaScript.
+          </p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-mobile-alt"></i>
+          </div>
+          <h3 class="feature-title">Design Responsive</h3>
+          <p class="feature-description">
+            Fonctionne parfaitement sur tous les appareils. Codez sur votre ordinateur, tablette ou téléphone.
+          </p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-moon"></i>
+          </div>
+          <h3 class="feature-title">Mode Sombre/Clair</h3>
+          <p class="feature-description">
+            Choisissez entre les thèmes sombre et clair pour une expérience de codage confortable.
+          </p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-globe"></i>
+          </div>
+          <h3 class="feature-title">Multilingue</h3>
+          <p class="feature-description">
+            Disponible en 9+ langues. Codez dans votre langue préférée.
+          </p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-keyboard"></i>
+          </div>
+          <h3 class="feature-title">Raccourcis Clavier</h3>
+          <p class="feature-description">
+            Augmentez votre productivité avec des raccourcis clavier puissants.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="cta-title">Prêt à commencer à créer?</h2>
+        <p class="cta-description">
+          Rejoignez des milliers de développeurs utilisant CodeCraft Studio pour donner vie à leurs idées
+        </p>
+        <a href="/pages/fr/editor.html" class="btn btn-primary btn-lg">
+          <i class="fas fa-rocket"></i> Lancer l'Éditeur
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-column">
+          <div class="footer-brand">
+            <i class="fas fa-code"></i>
+            <span>CodeCraft Studio</span>
+          </div>
+          <p class="footer-description">
+            Éditeur de code professionnel en ligne pour le développement web moderne.
+            Créez, testez et partagez vos projets facilement.
+          </p>
+        </div>
+        
+        <div class="footer-column">
+          <h3 class="footer-title">Produit</h3>
+          <ul class="footer-links">
+            <li><a href="/pages/fr/editor.html">Éditeur</a></li>
+            <li><a href="/pages/fr/templates.html">Modèles</a></li>
+            <li><a href="/pages/fr/features.html">Fonctionnalités</a></li>
+            <li><a href="/pages/fr/documentation.html">Documentation</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3 class="footer-title">Entreprise</h3>
+          <ul class="footer-links">
+            <li><a href="/pages/fr/about.html">À propos</a></li>
+            <li><a href="/pages/fr/contact.html">Contact</a></li>
+            <li><a href="/pages/fr/privacy.html">Confidentialité</a></li>
+            <li><a href="/pages/fr/terms.html">Conditions</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3 class="footer-title">Communauté</h3>
+          <ul class="footer-links">
+            <li><a href="https://github.com/codecraft-studio" target="_blank">GitHub</a></li>
+            <li><a href="https://twitter.com/codecraft" target="_blank">Twitter</a></li>
+            <li><a href="https://discord.gg/codecraft" target="_blank">Discord</a></li>
+            <li><a href="/pages/fr/blog.html">Blog</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p class="footer-copyright">
+          &copy; 2024 CodeCraft Studio. Tous droits réservés.
+        </p>
+        <div class="footer-social">
+          <a href="https://github.com/codecraft-studio" target="_blank" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://twitter.com/codecraft" target="_blank" aria-label="Twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="https://discord.gg/codecraft" target="_blank" aria-label="Discord">
+            <i class="fab fa-discord"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../../scripts/main-ui.js"></script>
+</body>
+</html>
